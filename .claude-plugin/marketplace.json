@@ -7,7 +7,7 @@
     {
       "name": "especificacao-e-sessoes-plugin",
       "source": "./plugins/especificacao-e-sessoes-plugin",
-      "description": "Fluxo padrao de especificacao, documentacao viva e planejamento de desenvolvimento por sessoes incrementais de IA."
+      "description": "Fluxo padrao de especificacao, documentacao viva e planejamento de desenvolvimento por sessoes incrementais de IA, com guardrails de consumo de contexto (CLAUDE.md em camadas, skills de projeto, guard mecanico)."
     }
   ]
 }

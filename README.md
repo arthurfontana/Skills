@@ -13,7 +13,7 @@ Marketplace pessoal de plugins/skills do Claude Code.
 
 | Plugin | Skill | Descrição |
 |---|---|---|
-| [`especificacao-e-sessoes-plugin`](plugins/especificacao-e-sessoes-plugin) | `especificacao-e-sessoes` | Fluxo padrão de especificação, documentação viva e planejamento de desenvolvimento por sessões incrementais de IA. |
+| [`especificacao-e-sessoes-plugin`](plugins/especificacao-e-sessoes-plugin) | `especificacao-e-sessoes` | Fluxo padrão de especificação, documentação viva e planejamento de desenvolvimento por sessões incrementais de IA, com guardrails de consumo de contexto (CLAUDE.md em camadas, skills de projeto, guard mecânico de tamanho). |
 
 ## Adicionar uma nova skill
 

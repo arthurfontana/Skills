@@ -7,11 +7,14 @@ description: >-
   funcional; criar ou atualizar páginas de Wiki de um projeto; quebrar um épico ou feature
   em sessões de execução com prompt próprio; escolher qual modelo de IA usar numa tarefa;
   registrar uma decisão de arquitetura (ADR/DEC); tratar um pedido de mudança de escopo
-  sobre algo já especificado; preparar handoff de um sistema para um time de TI; ou
+  sobre algo já especificado; preparar handoff de um sistema para um time de TI;
   configurar um repositório novo com essa estrutura (incluindo a Action de sincronização
-  da Wiki). Também dispara quando o usuário mencionar "sessão de execução", "prompt de
-  sessão", "documentação viva", "épico", "especificação" ou "handoff" — mesmo sem pedir a
-  skill pelo nome.
+  da Wiki); criar ou emagrecer um CLAUDE.md; reduzir consumo de contexto/tokens das
+  sessões de IA num repositório (boot caro, CLAUDE.md gigante, arquivo monólito); ou
+  criar skills de projeto (.claude/skills/). Também dispara quando o usuário mencionar
+  "sessão de execução", "prompt de sessão", "documentação viva", "épico",
+  "especificação", "handoff", "CLAUDE.md", "consumo de contexto" ou "guardrails de
+  contexto" — mesmo sem pedir a skill pelo nome.
 ---
 
 # Especificação e Sessões — fluxo padrão de desenvolvimento
@@ -66,6 +69,14 @@ interface do GitHub — a próxima sincronização sobrescreve.
 
 Isso dá o melhor dos dois mundos: a doc entra no mesmo PR que o código (revisável,
 atômica com a mudança) e o time de TI lê numa Wiki navegável sem clonar nada.
+
+Além da camada normativa, projetos maiores ganham uma segunda camada:
+`docs/claude/*.md` — detalhe de implementação por domínio que só interessa a quem
+edita código (protocolos de mensagem, mapas de região de arquivo, checklists
+mecânicos), carregado sob demanda pela IA via mapa de ponteiros do `CLAUDE.md` e
+**não** sincronizado com a Wiki. Nunca duplique entre camadas: se a doc normativa já
+existe em `docs/wiki/`, o ponteiro aponta para ela. Fronteiras completas e regras
+anti-deriva: `references/guardrails-de-contexto.md` (G1/G2).
 
 ### Estrutura de páginas
 
@@ -191,6 +202,34 @@ Checklist obrigatório antes de encerrar qualquer sessão que mudou comportament
 
 A Action publica tudo na Wiki no merge para a branch padrão — nenhum passo manual.
 
+## Guardrails de consumo de contexto (transversais a todas as fases)
+
+Todo projeto com IA paga um **custo fixo** (o que carrega no boot de toda sessão —
+`CLAUDE.md`, descriptions de skills) e um **custo variável** (Greps/Reads durante a
+tarefa). Sem guardrails, o `CLAUDE.md` cresce ~linearmente por épico até consumir
+20–30% da janela antes da primeira palavra. As regras — destiladas de um diagnóstico
+real que cortou ~92% do custo de boot, detalhadas em
+`references/guardrails-de-contexto.md` — em resumo:
+
+- **G1** — `CLAUDE.md` é índice enxuto em camadas (teto ~450 linhas): só o que TODA
+  sessão precisa + mapa "onde vive o quê". Feature nova = **1 linha** de ponteiro no
+  índice; o detalhe vai para a doc de domínio.
+- **G2** — Duas camadas de doc (`docs/wiki/` normativa · `docs/claude/` detalhe de
+  implementação), nunca uma terceira cópia. Conteúdo é movido, nunca perdido.
+- **G3** — Contrato de manutenção: nunca apagar para caber; poda antes de escrever;
+  spillover controlado; **guard mecânico no CI** (`assets/check-claude-md.js`).
+- **G4** — Skills de projeto (`.claude/skills/`) para o que só algumas sessões
+  precisam — carregamento sob demanda, ~1 linha de custo no boot.
+- **G5** — Arquivo gigante: âncoras de região grep-áveis + mapa primeiro; extração
+  incremental de módulos puros depois; reescrita big-bang nunca.
+- **G6** — Higiene: pesquisa exploratória via subagent; pedidos apontam
+  arquivo/função/região; sessão nova por tarefa; nunca "leia o projeto inteiro".
+
+Ao especificar (Fase 2) e planejar sessões (Fase 3), aplique os guardrails desde o
+início — é muito mais barato nascer em camadas do que emagrecer depois. Se o usuário
+relatar sintomas em projeto existente (boot caro, compactação no meio de tarefas,
+`CLAUDE.md`-changelog), leia a referência e conduza o diagnóstico/plano de lá.
+
 ## Bootstrap de um repositório novo (ou adoção em repositório existente)
 
 1. Crie `docs/wiki/` com `Home.md`, `_Sidebar.md` e `Visao-e-Escopo.md` (produto da fase 1).
@@ -199,8 +238,16 @@ A Action publica tudo na Wiki no merge para a branch padrão — nenhum passo ma
    interface (qualquer conteúdo) — o repositório git da Wiki só passa a existir depois
    disso; sem esse passo a Action falha no clone.
 4. Rode as fases 2–3 para o primeiro épico; primeira sessão só depois da doc pronta.
-5. No `CLAUDE.md` do projeto, mantenha um índice enxuto apontando para as páginas
-   normativas — nunca duplique conteúdo da Wiki nele.
+5. Crie o `CLAUDE.md` do projeto já como **índice enxuto em camadas** (guardrail G1):
+   stack, comandos, regras invioláveis, estrutura resumida e o mapa "onde vive o quê"
+   apontando para as páginas normativas — nunca duplique conteúdo da Wiki nele, e
+   feature nova entra como 1 linha de ponteiro.
+6. Instale o guard mecânico do teto (G3): copie `assets/check-claude-md.js` desta
+   skill para `scripts/` do projeto, registre `check:claude-md` como script npm (ou
+   equivalente) e plugue num step do CI.
+7. Conforme os domínios "onde erro é caro" aparecerem (persistência de dados do
+   usuário, protocolos com paridade numérica, GATEs de teste), crie skills de projeto
+   em `.claude/skills/` (G4) em vez de engordar o `CLAUDE.md`.
 
 ## Recursos desta skill
 
@@ -210,4 +257,6 @@ A Action publica tudo na Wiki no merge para a branch padrão — nenhum passo ma
 | `references/template-prompt-sessao.md` | Ao escrever qualquer prompt de sessão |
 | `references/template-roadmap.md` | Ao criar `Roadmap-e-Sessoes.md` ou replanejar sessões |
 | `references/template-decisoes.md` | Ao registrar uma DEC/ADR |
+| `references/guardrails-de-contexto.md` | Ao criar/emagrecer um `CLAUDE.md`, estruturar `docs/claude/`, criar skills de projeto, lidar com arquivo monólito ou diagnosticar consumo de contexto/tokens |
 | `assets/sync-wiki.yml` | Copiar para `.github/workflows/` no bootstrap (workflow pronto) |
+| `assets/check-claude-md.js` | Copiar para `scripts/` no bootstrap — guard mecânico do teto de linhas do `CLAUDE.md` (plugar no CI) |
