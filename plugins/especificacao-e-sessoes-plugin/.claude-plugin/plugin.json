@@ -1,0 +1,8 @@
+{
+  "name": "especificacao-e-sessoes-plugin",
+  "description": "Fluxo padrao de especificacao, documentacao viva e planejamento de desenvolvimento por sessoes incrementais de IA.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arthur Fontana"
+  }
+}

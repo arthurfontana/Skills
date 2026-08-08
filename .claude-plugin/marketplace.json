@@ -1,0 +1,13 @@
+{
+  "name": "arthurfontana-skills",
+  "owner": {
+    "name": "Arthur Fontana"
+  },
+  "plugins": [
+    {
+      "name": "especificacao-e-sessoes-plugin",
+      "source": "./plugins/especificacao-e-sessoes-plugin",
+      "description": "Fluxo padrao de especificacao, documentacao viva e planejamento de desenvolvimento por sessoes incrementais de IA."
+    }
+  ]
+}
