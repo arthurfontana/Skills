@@ -8,6 +8,11 @@
       "name": "especificacao-e-sessoes-plugin",
       "source": "./plugins/especificacao-e-sessoes-plugin",
       "description": "Fluxo padrao de especificacao, documentacao viva e planejamento de desenvolvimento por sessoes incrementais de IA, com guardrails de consumo de contexto (CLAUDE.md em camadas, skills de projeto, guard mecanico)."
+    },
+    {
+      "name": "guardrails-de-contexto-plugin",
+      "source": "./plugins/guardrails-de-contexto-plugin",
+      "description": "Playbook executavel dos guardrails de consumo de contexto: CLAUDE.md como indice em camadas, docs/claude/, skills de projeto, guard mecanico de tamanho no CI e ancoras de regiao em arquivos gigantes."
     }
   ]
 }
