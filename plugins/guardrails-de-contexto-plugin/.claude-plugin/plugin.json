@@ -1,0 +1,8 @@
+{
+  "name": "guardrails-de-contexto-plugin",
+  "description": "Playbook executavel dos guardrails de consumo de contexto: CLAUDE.md como indice em camadas, docs/claude/, skills de projeto, guard mecanico de tamanho no CI e ancoras de regiao em arquivos gigantes.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arthur Fontana"
+  }
+}

@@ -1,5 +1,12 @@
 # Guardrails de consumo de contexto — economia de tokens em projetos com IA
 
+> **Versão executável**: a skill `guardrails-de-contexto` (plugin
+> `guardrails-de-contexto-plugin` deste mesmo marketplace) é o playbook de execução destas
+> regras — bootstrap, diagnóstico/retrofit, manutenção, templates de `CLAUDE.md` e de
+> skill de projeto, padrões de âncora e o guard mecânico pronto. Este arquivo é o
+> destilado conceitual (G1–G6) que a Fase 2/3 desta skill consome; se os dois divergirem,
+> vale a skill executável.
+>
 > Origem: diagnóstico real (Épico CTX, 07/2026) num projeto onde o `CLAUDE.md` tinha
 > ~195KB (~50 mil tokens, ≈25% de uma janela de 200k) e era carregado automaticamente
 > em TODA sessão, antes da primeira palavra — o usuário percebia como "leitura do

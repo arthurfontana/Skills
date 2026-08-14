@@ -230,6 +230,11 @@ início — é muito mais barato nascer em camadas do que emagrecer depois. Se o
 relatar sintomas em projeto existente (boot caro, compactação no meio de tarefas,
 `CLAUDE.md`-changelog), leia a referência e conduza o diagnóstico/plano de lá.
 
+**Execução**: a skill `guardrails-de-contexto` (mesmo marketplace) é o playbook completo —
+templates de `CLAUDE.md` e de skill de projeto, roteiro de diagnóstico com medição, padrões
+de âncora e o guard mecânico pronto. Use-a quando a tarefa **for** os guardrails; use a
+referência abaixo quando só precisar aplicá-los de passagem numa sessão de especificação.
+
 ## Bootstrap de um repositório novo (ou adoção em repositório existente)
 
 1. Crie `docs/wiki/` com `Home.md`, `_Sidebar.md` e `Visao-e-Escopo.md` (produto da fase 1).
