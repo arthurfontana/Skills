@@ -63,7 +63,22 @@ Rode o parser (seção seguinte) e entregue ao usuário estes arquivos, um por v
    ou parênteses — a tela "Colar tabela de domínios" do PolicyOps deriva o código
    maiusculizando o texto ao pé da letra, sem normalizar nada).
 2. **Um `.tsv` para o Cluster de Risco** — mesma forma, um domínio por linha (ex.:
-   `BAIXISSIMO_RISCO`, `BAIXO_RISCO`, `MEDIO_RISCO`, `ALTO_RISCO`, `ALTISSIMO_RISCO`).
+   `BAIXISSIMO_RISCO`, `BAIXO_RISCO`, `MEDIO_RISCO`, `ALTO_RISCO`, `ALTISSIMO_RISCO`), **mais
+   uma coluna `Cor`** com a cor oficial de cada domínio (`docs/05-regras-de-negocio.md`
+   §5.6.4.2, paleta `RISCO_SIMPLIFICADO`) — a tela "Colar tabela de domínios" reconhece a
+   coluna `Cor` e aplica direto, sem depender do casamento automático por código/rótulo da
+   paleta (os códigos de cluster têm sufixo `_RISCO`, que não bate com os códigos da paleta):
+
+   | Domínio | Cor |
+   |---|---|
+   | `BAIXISSIMO_RISCO` | `#2ECC71` |
+   | `BAIXO_RISCO` | `#8BC34A` |
+   | `MEDIO_RISCO` | `#FFC107` |
+   | `ALTO_RISCO` | `#FF7043` |
+   | `ALTISSIMO_RISCO` | `#D32F2F` |
+
+   Se o cluster do usuário tiver um número diferente de 5 níveis, pergunte a cor de cada um —
+   não invente gradiente.
 3. **Um `.tsv` para a variável de Score** — colunas de agrupamento (uma por nível de
    `groupingDimensions`, ex. `GRUPO`, `CLASSE`) + `Domínio` + `Mínimo` + `Máximo`, uma linha por
    combinação observada. **Inclua o pior cluster com faixa explícita**, não como catch-all: o
