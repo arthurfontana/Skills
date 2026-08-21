@@ -13,6 +13,11 @@
       "name": "guardrails-de-contexto-plugin",
       "source": "./plugins/guardrails-de-contexto-plugin",
       "description": "Playbook executavel dos guardrails de consumo de contexto: CLAUDE.md como indice em camadas, docs/claude/, skills de projeto, guard mecanico de tamanho no CI e ancoras de regiao em arquivos gigantes."
+    },
+    {
+      "name": "import-politica-credito-plugin",
+      "source": "./plugins/import-politica-credito-plugin",
+      "description": "Converte uma planilha de politica de credito no formato NMEI (Grupo de Cliente x Cluster de Risco, Score e Limite por Classe) nos arquivos prontos para colar/importar no PolicyOps: variaveis de eixo, variavel de Score com corte por grupo/classe e o CSV de import da matriz."
     }
   ]
 }
