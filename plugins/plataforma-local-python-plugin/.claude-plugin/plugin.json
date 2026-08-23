@@ -1,0 +1,8 @@
+{
+  "name": "plataforma-local-python-plugin",
+  "description": "Playbook validado em producao (PolicyOps e AppCreditoSimulador) para transformar uma aplicacao web em plataforma local de maquina corporativa: servidor Python em 127.0.0.1, venv dedicado, instalacao em camadas (indice pip corporativo primeiro, wheels offline como contingencia), instalar.bat/iniciar.bat, token por boot e sonda de ambiente.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arthur Fontana"
+  }
+}
