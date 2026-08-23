@@ -9,6 +9,7 @@ Marketplace pessoal de plugins/skills do Claude Code.
 /plugin install especificacao-e-sessoes-plugin@arthurfontana-skills
 /plugin install guardrails-de-contexto-plugin@arthurfontana-skills
 /plugin install import-politica-credito-plugin@arthurfontana-skills
+/plugin install plataforma-local-python-plugin@arthurfontana-skills
 ```
 
 ## Plugins
@@ -18,6 +19,7 @@ Marketplace pessoal de plugins/skills do Claude Code.
 | [`especificacao-e-sessoes-plugin`](plugins/especificacao-e-sessoes-plugin) | `especificacao-e-sessoes` | Fluxo padrão de especificação, documentação viva e planejamento de desenvolvimento por sessões incrementais de IA, com guardrails de consumo de contexto (CLAUDE.md em camadas, skills de projeto, guard mecânico de tamanho). |
 | [`guardrails-de-contexto-plugin`](plugins/guardrails-de-contexto-plugin) | `guardrails-de-contexto` | Playbook executável para instalar, auditar e manter os guardrails de consumo de contexto de um repositório: CLAUDE.md como índice em camadas, documentação em camadas, skills de projeto (`.claude/skills/`), guard mecânico de tamanho no CI e âncoras de região em arquivos gigantes. |
 | [`import-politica-credito-plugin`](plugins/import-politica-credito-plugin) | `import-politica-credito` | Converte uma planilha de política de crédito no formato NMEI (Grupo de Cliente × Cluster de Risco, Score e Limite por Classe) nos arquivos prontos para colar/importar no PolicyOps: variáveis de eixo, variável de Score com corte por grupo/classe e o CSV de import da matriz. |
+| [`plataforma-local-python-plugin`](plugins/plataforma-local-python-plugin) | `plataforma-local-python` | Playbook validado em produção (PolicyOps e AppCreditoSimulador) para transformar uma aplicação web em plataforma local de máquina corporativa: servidor Python em 127.0.0.1, venv dedicado, instalação em camadas (índice pip corporativo primeiro, wheels offline como contingência), `instalar.bat`/`iniciar.bat`, token por boot e sonda de ambiente (`checar_ambiente.py`). |
 
 ## Adicionar uma nova skill
 
