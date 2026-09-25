@@ -23,6 +23,11 @@
       "name": "plataforma-local-python-plugin",
       "source": "./plugins/plataforma-local-python-plugin",
       "description": "Playbook validado em producao (PolicyOps e AppCreditoSimulador) para transformar uma aplicacao web em plataforma local de maquina corporativa: servidor Python em 127.0.0.1, venv dedicado, instalacao em camadas (indice pip + wheels offline), instalar.bat/iniciar.bat, token por boot e sonda de ambiente."
+    },
+    {
+      "name": "credit-modeling-advisor-plugin",
+      "source": "./plugins/credit-modeling-advisor-plugin",
+      "description": "Atua como Senior Credit Modeling Advisor com metodologia proporcional: rigor calibrado por nivel (1-4), 16 estagios com gates, classificacao de cada pratica em Requisito/Mercado/Academica/Tecnica-da-IA/Opcao/Regulatory-Inspiration, e Decision Log. Cobre desenvolvimento, validacao, comparacao (champion/challenger), monitoramento e governanca de modelos de credito (application/behaviour score, PD, LGD, EAD/CCF, collections, propensao ligada a risco, fraude), com contexto regulatorio explicito (LGPD, Cadastro Positivo, CDC, Anatel, e benchmarks como Basileia/CMN/SR 26-2/EBA/PRA)."
     }
   ]
 }
