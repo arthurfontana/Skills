@@ -1,0 +1,8 @@
+{
+  "name": "statistical-analysis-plugin",
+  "description": "Kit de analise estatistica traduzido para pt-br: testes de hipotese (teste t, ANOVA, qui-quadrado), regressao, correlacao, estatistica bayesiana, analise de poder, verificacao de pressupostos e relatorios no padrao APA, para pesquisa academica.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arthur Fontana"
+  }
+}
