@@ -11,6 +11,7 @@ Marketplace pessoal de plugins/skills do Claude Code.
 /plugin install import-politica-credito-plugin@arthurfontana-skills
 /plugin install plataforma-local-python-plugin@arthurfontana-skills
 /plugin install credit-modeling-advisor-plugin@arthurfontana-skills
+/plugin install statistical-analysis-plugin@arthurfontana-skills
 ```
 
 ## Plugins
@@ -22,6 +23,7 @@ Marketplace pessoal de plugins/skills do Claude Code.
 | [`import-politica-credito-plugin`](plugins/import-politica-credito-plugin) | `import-politica-credito` | Converte uma planilha de política de crédito no formato NMEI (Grupo de Cliente × Cluster de Risco, Score e Limite por Classe) nos arquivos prontos para colar/importar no PolicyOps: variáveis de eixo, variável de Score com corte por grupo/classe e o CSV de import da matriz. |
 | [`plataforma-local-python-plugin`](plugins/plataforma-local-python-plugin) | `plataforma-local-python` | Playbook validado em produção (PolicyOps e AppCreditoSimulador) para transformar uma aplicação web em plataforma local de máquina corporativa: servidor Python em 127.0.0.1, venv dedicado, instalação em camadas (índice pip corporativo primeiro, wheels offline como contingência), `instalar.bat`/`iniciar.bat`, token por boot e sonda de ambiente (`checar_ambiente.py`). |
 | [`credit-modeling-advisor-plugin`](plugins/credit-modeling-advisor-plugin) | `credit-modeling-advisor` | Senior Credit Modeling Advisor com metodologia proporcional: 16 estágios com gates, 4 níveis de rigor, classificação R/M/A/T/O/RI de cada prática recomendada e Decision Log. Cobre desenvolvimento, validação, champion/challenger, monitoramento e governança de modelos de crédito (score, PD, LGD, EAD/CCF, collections, fraude), com contexto regulatório explícito (LGPD, Cadastro Positivo, CDC, Anatel) separado dos benchmarks internacionais (Basileia, CMN, SR 26-2, EBA, PRA). |
+| [`statistical-analysis-plugin`](plugins/statistical-analysis-plugin) | `statistical-analysis` | Kit de análise estatística (traduzido para pt-br a partir de app.mcpmarket.com/arthurfontana/skills/statistical-analysis): testes de hipótese (teste t, ANOVA, qui-quadrado), regressão, correlação, estatística bayesiana, análise de poder, verificação de pressupostos e relatórios no padrão APA, para pesquisa acadêmica. |
 
 ## Adicionar uma nova skill
 
