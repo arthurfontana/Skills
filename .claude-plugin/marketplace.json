@@ -33,6 +33,11 @@
       "name": "statistical-analysis-plugin",
       "source": "./plugins/statistical-analysis-plugin",
       "description": "Kit de analise estatistica traduzido para pt-br: testes de hipotese (teste t, ANOVA, qui-quadrado), regressao, correlacao, estatistica bayesiana, analise de poder, verificacao de pressupostos e relatorios no padrao APA, para pesquisa academica."
+    },
+    {
+      "name": "statsmodels-plugin",
+      "source": "./plugins/statsmodels-plugin",
+      "description": "Kit de modelagem estatistica traduzido para pt-br: OLS, GLM, regressao logistica, ARIMA, series temporais, testes de hipotese, diagnosticos e AIC/BIC, para inferencia estatistica rigorosa e analise econometrica."
     }
   ]
 }

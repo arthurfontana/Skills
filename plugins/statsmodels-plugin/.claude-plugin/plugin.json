@@ -1,0 +1,8 @@
+{
+  "name": "statsmodels-plugin",
+  "description": "Kit de modelagem estatistica traduzido para pt-br: OLS, GLM, regressao logistica, ARIMA, series temporais, testes de hipotese, diagnosticos e AIC/BIC, para inferencia estatistica rigorosa e analise econometrica.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Arthur Fontana"
+  }
+}
